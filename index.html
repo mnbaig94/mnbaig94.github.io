@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Mahad Nadeem - Senior Electrical Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1f3a7d;
+            --secondary: #2563eb;
+            --accent: #06b6d4;
+            --text: #1f2937;
+            --light: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .hero .title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 3rem 0 2rem;
+            text-align: center;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 1rem auto 0;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .project-logo {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-year {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--primary);
+        }
+
+        .project-company {
+            color: var(--secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #6b7280;
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+
+        .project-image {
+            width: 100%;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #f3f4f6;
+            color: var(--text);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-details {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin: 1rem 0;
+        }
+
+        .project-details ul {
+            margin: 0.5rem 0;
+            padding-left: 20px;
+        }
+
+        .project-details li {
+            margin: 0.5rem 0;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 80px 20px;
+            background: var(--light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: #6b7280;
+        }
+
+        .skill-list li::before {
+            content: '→ ';
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .title {
+                font-size: 1.2rem;
+            }
+
+            nav a {
+                margin: 0 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">MHN</div>
+            <div style="display: flex; gap: 2rem;">
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Mohammad Mahad Nadeem</h1>
+            <p class="title">Senior Electrical Engineer</p>
+            <p>Power Electronics | Energy Systems | System Integration<br>
+            Designing robust electrical solutions from concept to commissioning</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="mailto:mahad.baig97@gmail.com" class="btn btn-secondary">Email Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1: EWT Systems -->
+                <div class="project-card">
+                    <div class="project-year">2026 – Present</div>
+                    <h3>Electrical Control Systems</h3>
+                    <p class="project-company">EWT Systems B.V. • Amersfoort, Netherlands</p>
+                    <p class="project-description">
+                        Leading end-to-end design and delivery of electrical control panels and power systems. Designing Single Line Diagrams (SLDs), protection schemes, and LV/MV system integration with full compliance to IEC standards and industry best practices.
+                    </p>
+                    <div class="project-details">
+                        <strong>Key Responsibilities:</strong>
+                        <ul>
+                            <li>Design of electrical control panels and switchboards</li>
+                            <li>SLD development and circuit design</li>
+                            <li>Protection relay coordination and settings</li>
+                            <li>IEC compliance verification</li>
+                            <li>System commissioning and testing</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">SLD Design</span>
+                        <span class="tech-tag">Protection Schemes</span>
+                        <span class="tech-tag">IEC Standards</span>
+                        <span class="tech-tag">System Integration</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: Schneider Electric -->
+                <div class="project-card">
+                    <div class="project-year">2025 – 2026</div>
+                    <img src="SCHNEIDER LOGO.png" alt="Schneider Electric" class="project-logo">
+                    <h3>High Voltage DC Systems</h3>
+                    <p class="project-company">Schneider Electric • Aalsmeer, Netherlands</p>
+                    <p class="project-description">
+                        Designed and managed HVDC products (350V & 700V DC systems) from concept through production deployment. Led comprehensive system testing, validation, FAT/SAT activities, and ensured compliance with Schneider Electric design guidelines.
+                    </p>
+                    
+                    <p style="color: #6b7280; font-weight: 600; margin-top: 1rem;"><strong>System Architecture:</strong></p>
+                    <img src="BLOACK DIAGRAM OF HARDWARE AT SCHENIDER.png" alt="Schneider HVDC Block Diagram" class="project-image">
+                    
+                    <p style="color: #6b7280; font-weight: 600; margin-top: 1rem;"><strong>Hardware Implementation:</strong></p>
+                    <img src="HARDWARE AT SCHENEIDER PROJECT.png" alt="Schneider Hardware Implementation" class="project-image">
+                    
+                    <div class="project-details">
+                        <ul>
+                            <li>HVDC power module design (350V and 700V variants)</li>
+                            <li>Hardware design and PCB layout optimization</li>
+                            <li>Thermal management and cooling system design</li>
+                            <li>Full FAT/SAT testing and validation</li>
+                            <li>Manufacturing support and quality assurance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">HVDC Design</span>
+                        <span class="tech-tag">Hardware Design</span>
+                        <span class="tech-tag">Product Testing</span>
+                        <span class="tech-tag">FAT/SAT</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: TalTech EV Charger -->
+                <div class="project-card">
+                    <div class="project-year">2023 – 2024</div>
+                    <img src="TALTECH LOGO.png" alt="TalTech" class="project-logo">
+                    <h3>Universal Battery AC/DC EV Charger</h3>
+                    <p class="project-company">TalTech • Tallinn, Estonia</p>
+                    <p class="project-description">
+                        Designed a universal AC/DC charger for electric vehicles from ground up. Performed topology selection, PSIM simulation, control algorithm design, and comprehensive validation testing for multi-mode operation.
+                    </p>
+                    
+                    <p style="color: #6b7280; font-weight: 600; margin-top: 1rem;"><strong>Prototype Hardware:</strong></p>
+                    <img src="TALTECH HARDWARE PROJECT.png" alt="TalTech EV Charger Prototype" class="project-image">
+                    
+                    <div class="project-details">
+                        <strong>Project Scope:</strong>
+                        <ul>
+                            <li>Topology selection: 3-stage AC/DC with isolated DC-DC stage</li>
+                            <li>PSIM simulation and modeling</li>
+                            <li>Control algorithm for multi-mode operation (AC, DC, battery modes)</li>
+                            <li>Power factor correction and harmonic mitigation</li>
+                            <li>Hardware prototype development and testing</li>
+                            <li>Grid synchronization and safety compliance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">EV Converter Design</span>
+                        <span class="tech-tag">Topology Selection</span>
+                        <span class="tech-tag">Control Design</span>
+                        <span class="tech-tag">PSIM</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: SkyElectric Inverter -->
+                <div class="project-card">
+                    <div class="project-year">2021 – 2022</div>
+                    <img src="sKYELECTRIC LOGO.png" alt="SkyElectric" class="project-logo">
+                    <h3>Single-Phase Grid-Tie Inverter</h3>
+                    <p class="project-company">SkyElectric Pvt Ltd. • Islamabad, Pakistan</p>
+                    <p class="project-description">
+                        Designed 5.5kW single-phase inverter for grid-tie, stand-alone, and hybrid operating modes. Implemented robust anti-islanding algorithm per Japanese Electrical Manufacturer Standard JEM-1498 with real-time detection and automatic grid disconnection.
+                    </p>
+                    
+                    <p style="color: #6b7280; font-weight: 600; margin-top: 1rem;"><strong>System Block Diagram:</strong></p>
+                    <img src="SKYELECTRIC BLOCK DIAGRAM OF HARDWARE.png" alt="SkyElectric Block Diagram" class="project-image">
+                    
+                    <p style="color: #6b7280; font-weight: 600; margin-top: 1rem;"><strong>Hardware Assembly:</strong></p>
+                    <img src="sKYELECTRIC PROJECT HARDWARE.jpg" alt="SkyElectric Hardware Assembly" class="project-image">
+                    
+                    <div class="project-details">
+                        <strong>Technical Specifications:</strong>
+                        <ul>
+                            <li>Power Rating: 5.5kW, single-phase, 230V AC, 50Hz</li>
+                            <li>Topology: Full-bridge inverter with LCL filter</li>
+                            <li>Grid Compliance: JEM-1498 anti-islanding standard</li>
+                            <li>Operating Modes: Grid-tied, stand-alone, and hybrid modes</li>
+                            <li>Control: Real-time islanding detection with automatic disconnection</li>
+                            <li>Efficiency: >95% at rated power</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">Inverter Design</span>
+                        <span class="tech-tag">Control Systems</span>
+                        <span class="tech-tag">Anti-Islanding</span>
+                        <span class="tech-tag">MATLAB</span>
+                    </div>
+                </div>
+
+                <!-- Project 5: Soongsil Research -->
+                <div class="project-card">
+                    <div class="project-year">2019 – 2021</div>
+                    <img src="sOONGSIL LOGO.png" alt="Soongsil University" class="project-logo">
+                    <h3>Harmonic Elimination & Anti-Islanding</h3>
+                    <p class="project-company">Soongsil University • Seoul, South Korea</p>
+                    <p class="project-description">
+                        Developed robust harmonic elimination method for 10kW three-phase grid-connected inverter. Designed innovative hybrid anti-islanding algorithm using Digital Lock-In Amplifier technique for real-time detection and secure grid disconnection.
+                    </p>
+                    
+                    <p style="color: #6b7280; font-weight: 600; margin-top: 1rem;"><strong>System Architecture & Control Strategy:</strong></p>
+                    <img src="SOONGSIL ISLANDING PROJECT BLOCK DIAGRAM.png" alt="Soongsil Anti-Islanding Architecture" class="project-image">
+                    
+                    <div class="project-details">
+                        <strong>Technical Details:</strong>
+                        <ul>
+                            <li>Power Rating: 10kW, three-phase grid-connected inverter</li>
+                            <li>Harmonic Control: LCL filter design for IEEE 519 compliance</li>
+                            <li>Grid Synchronization: Synchronized Reference Frame (SRF) PLL design</li>
+                            <li>Anti-Islanding: Hybrid detection using Digital Lock-In Amplifier</li>
+                            <li>DSP Implementation: Real-time control with Code Composer Studio</li>
+                            <li>Standards Compliance: IEEE Std. 519 & 1547, IEC 61727</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">LCL Filter Design</span>
+                        <span class="tech-tag">PLL Design</span>
+                        <span class="tech-tag">DSP Code (Code Composer)</span>
+                        <span class="tech-tag">IEEE Std. 519 & 1547</span>
+                    </div>
+                </div>
+
+                <!-- Bonus: EIS Research -->
+                <div class="project-card">
+                    <div class="project-year">2019 – 2021</div>
+                    <h3>Multi-Channel Fast EIS Instrument</h3>
+                    <p class="project-company">Soongsil University • Seoul, South Korea</p>
+                    <p class="project-description">
+                        Developed fast Electrochemical Impedance Spectroscopy (EIS) methodology and instrument for quality assurance of supercapacitors. Designed PCB and testing circuits for high-frequency impedance measurement and analysis.
+                    </p>
+                    
+                    <div class="project-details">
+                        <strong>Project Components:</strong>
+                        <ul>
+                            <li>Multi-channel EIS measurement instrument design</li>
+                            <li>PCB layout and schematic design for analog front-end</li>
+                            <li>High-frequency signal conditioning and measurement circuits</li>
+                            <li>Data acquisition and impedance analysis algorithms</li>
+                            <li>Supercapacitor characterization and quality testing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">EIS Technology</span>
+                        <span class="tech-tag">PCB Design</span>
+                        <span class="tech-tag">Hardware Testing</span>
+                        <span class="tech-tag">Quality Assurance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Design & Architecture</h4>
+                    <ul class="skill-list">
+                        <li>Single Line Diagrams (SLDs)</li>
+                        <li>Protection & Coordination Schemes</li>
+                        <li>Power Electronics Topology Design</li>
+                        <li>System Integration & Validation</li>
+                        <li>Converter & Inverter Design</li>
+                        <li>Control Architecture</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Software & Tools</h4>
+                    <ul class="skill-list">
+                        <li>PSIM (Power Simulation)</li>
+                        <li>MATLAB/Simulink</li>
+                        <li>LTspice (Circuit Simulation)</li>
+                        <li>Altium Designer (PCB)</li>
+                        <li>Proteus (Circuit Design)</li>
+                        <li>SEE Electrical & Eplan</li>
+                        <li>Code Composer Studio (DSP)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Standards & Compliance</h4>
+                    <ul class="skill-list">
+                        <li>IEC/NEN Standards</li>
+                        <li>IEEE Std. 519 & 1547</li>
+                        <li>NEN 1010, 3140, NPR 9090</li>
+                        <li>Japanese JEM-1498</li>
+                        <li>DFMEA & Root-Cause Analysis</li>
+                        <li>FAT/SAT Testing</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Programming</h4>
+                    <ul class="skill-list">
+                        <li>C++ (Hardware/DSP Control)</li>
+                        <li>MATLAB/Stateflow</li>
+                        <li>Digital Control Algorithms</li>
+                        <li>Hardware Abstraction Layers</li>
+                        <li>Firmware Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Work Together</h2>
+            <p>Have a project in mind or want to discuss electrical engineering solutions?</p>
+            <div class="contact-links">
+                <a href="mailto:mahad.baig97@gmail.com" class="contact-link">
+                    ✉️ mahad.baig97@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/mnbaig94" target="_blank" class="contact-link">
+                    💼 LinkedIn Profile
+                </a>
+                <a href="tel:+31685453204" class="contact-link">
+                    📞 +31 685 453 204
+                </a>
+            </div>
+            <p style="font-size: 0.95rem; opacity: 0.85; margin-top: 2rem;">
+                Based in Amsterdam, Netherlands • Open to remote projects worldwide
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mohammad Mahad Nadeem. All rights reserved.</p>
+    </footer>
+</body>
+</html>
